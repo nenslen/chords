@@ -1,6 +1,19 @@
 # chords
  Create, visualize, and generate wav files for chords.
 
+# Get started
+If you just want to start messing around with chords, the code below will get you up and running.
+```python
+from waveform import Waveform
+from chord import Chord
+from note import Note
+import helpers
+
+chord = Chord(root='C4', quality='major')
+
+waveform = chord.get_waveform
+```
+
 # Creating chords
 There are a few different ways to create chords, depending on what you're doing.
 
@@ -54,7 +67,7 @@ waveform.to_wav(f'{chord.name}.wav')
 
 
 # Add waveforms together
-Perhaps you want to see what it looks like when 2 chords are added together. This example is quite simple just to show you 
+Perhaps you want to see what it looks like when 2 chords are added together. This example uses 2 chords with just one note each, to keep things simple.
 ```python
 chord1 = Chord(notes=[Note(frequency=100)])
 chord2 = Chord(notes=[Note(frequency=300)])
@@ -68,4 +81,6 @@ waveform = Waveform.add(waveform1, waveform2)
 
 waveform.plot('Added waveforms')
 ```
-![Frequency = 100](images/f100.png)
+![Frequency = 100](images/f100.png)\
+![Frequency = 300](images/f300.png)\
+![Frequency = 100 + 300](images/added100-300.png)

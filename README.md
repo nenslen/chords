@@ -2,16 +2,22 @@
  Create, visualize, and generate wav files for chords.
 
 # Get started
-If you just want to start messing around with chords, the code below will get you up and running.
+If you just want to start playing around with chords, the code below will get you started. This example will create a C4 major chord, plot it, and create a .wav file. I recommend testing out different values for duration, to see how the waveform looks at different resolutions.
 ```python
 from waveform import Waveform
 from chord import Chord
 from note import Note
 import helpers
 
+
+sample_rate = 44100
+duration = 2
+
 chord = Chord(root='C4', quality='major')
 
-waveform = chord.get_waveform
+waveform = chord.get_waveform(sample_rate, duration)
+waveform.plot(chord.name)
+waveform.to_wav(f'{chord.name}.wav')
 ```
 
 # Creating chords

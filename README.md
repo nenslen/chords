@@ -51,3 +51,21 @@ duration = 4
 waveform = chord.get_waveform(sample_rate, duration)
 waveform.to_wav(f'{chord.name}.wav')
 ```
+
+
+# Add waveforms together
+Perhaps you want to see what it looks like when 2 chords are added together. This example is quite simple just to show you 
+```python
+chord1 = Chord(notes=[Note(frequency=100)])
+chord2 = Chord(notes=[Note(frequency=300)])
+
+sample_rate = 44100
+duration = 0.1
+
+waveform1 = chord1.get_waveform(sample_rate, duration)
+waveform2 = chord2.get_waveform(sample_rate, duration)
+waveform = Waveform.add(waveform1, waveform2)
+
+waveform.plot('Added waveforms')
+```
+![Frequency = 100](images/f100.png)

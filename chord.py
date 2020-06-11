@@ -4,7 +4,7 @@ from waveform import Waveform
 
 
 class Chord:
-    def __init__(self, root=None, quality=None, notes=None):
+    def __init__(self, root=None, quality=None, name='', notes=None):
         '''
         Parameters
         ----------
@@ -17,6 +17,7 @@ class Chord:
         '''
         self.root = root
         self.quality = quality
+        self.name = name
         
         self.notes = []
         if notes is None:
@@ -27,6 +28,10 @@ class Chord:
                 note_number = root_note.number + offset
                 note = helpers.get_note_by_number(note_number)
                 self.notes.append(note)
+                
+            # Generate name if not already given
+            if name == '':
+                self.name = f'{root} {quality}'
         else:
             # Or just use notes if they're given
             self.notes = notes

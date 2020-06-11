@@ -2,6 +2,24 @@ import pandas as pd
 from note import Note
 
 
+notes_df = pd.read_csv('notes.csv')
+
+qualities = {
+    'major':            (0, 4, 7),
+    'minor':            (0, 3, 7),
+    'diminished':       (0, 3, 6),
+    'major_7th':     (0, 4, 7, 11),
+    'minor_7th':     (0, 3, 7, 10),
+    'dominant_7th':  (0, 4, 7, 10),
+    'dominant_11th': (0, 4, 7, 10, 14, 17),
+    'suspended_2':      (0, 2, 7),
+    'augmented_4':      (0, 4, 7),
+    'dream':            (0, 5, 6, 7),
+    'magic':            (0, 1, 5, 6, 10, 12, 15, 17),
+    'mystic':           (0, 6, 10, 16, 21, 26)
+}
+
+
 def get_note_by_name(note_name):
     '''
     Parameters
@@ -28,7 +46,7 @@ def get_note_by_name(note_name):
     return note
 
 
-def get_notes_by_names(note_names):
+def get_notes_by_name(note_names):
     '''    
     Parameters
     ----------
@@ -43,6 +61,24 @@ def get_notes_by_names(note_names):
     notes = []
     for note_name in note_names:
         notes.append(get_note_by_name(note_name))
+    return notes
+
+
+def create_notes_with_frequencies(frequencies):
+    '''    
+    Parameters
+    ----------
+    frequencies : list of floats
+        The frequencies of the notes to create. eg) [200, 250.852, 351.1]
+        
+    Returns
+    -------
+    list of Note
+        Notes that have the given frequencies
+    '''
+    notes = []
+    for frequency in frequencies:
+        notes.append(Note(frequency=frequency))
     return notes
 
 
@@ -66,20 +102,3 @@ def get_note_by_number(note_number):
     n = n.iloc[0]
     note = Note(n['number'], n['name'], n['alt_name'], n['frequency'])
     return note
-    
-
-notes_df = pd.read_csv('notes.csv')
-
-qualities = {
-    'major':            (0, 4, 7),
-    'minor':            (0, 3, 7),
-    'diminished':       (0, 3, 6),
-    'major_seventh':    (0, 4, 7, 11),
-    'minor_seventh':    (0, 3, 7, 10),
-    'dominant_seventh': (0, 4, 7, 10),
-    'suspended_2':      (0, 2, 7),
-    'augmented_4':      (0, 4, 7),
-    'dream':            (0, 5, 6, 7),
-    'magic':            (0, 1, 5, 6, 10, 12, 15, 17),
-    'mystic':           (0, 6, 10, 16, 21, 26)
-}

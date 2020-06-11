@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import wavio
 
 
+plt.style.use('ggplot')
+
+
 class Waveform:
     def __init__(self, points, sample_rate=44100):
         '''
@@ -36,11 +39,8 @@ class Waveform:
         if len(waveform_1.points) != len(waveform_2.points):
             raise Exception(f'Waveforms cannot be added with lengths: {len(waveform_1.points)}, {len(waveform_2.points)}')
             
-        if len(waveform_1.points) != len(waveform_2.points):
-            raise Exception(f'Waveforms cannot be added with different durations: {waveform_1.duration}, {waveform_2.duration}')
-            
         points = waveform_1.points + waveform_2.points
-        return Waveform(points, waveform_1.duration)
+        return Waveform(points, waveform_1.sample_rate)
     
     
     def plot(self, title):

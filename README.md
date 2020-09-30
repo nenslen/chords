@@ -45,7 +45,7 @@ chord = Chord(notes=notes)
 ```
 
 ### Create a chord with notes of any frequency & velocity
-This example creates a sawtooth wave
+This example approximates a sawtooth wave
 ```python
 notes = [Note(frequency=100, velocity=1),
          Note(frequency=200, velocity=0.5),

@@ -31,6 +31,13 @@ There are a few different ways to create chords, depending on what you're doing.
 chord = Chord(root='C4', quality='major')
 ```
 
+### Create a chord with named notes
+```python
+notes = helpers.get_notes_by_name(['F#1', 'G#2', 'A#3', 'C#4'])
+chord = Chord(notes=notes)
+```
+
+
 ### Create a chord with notes of any frequency
 ```python
 notes = helpers.create_notes_with_frequencies([200, 250, 300])
@@ -52,7 +59,6 @@ notes = [Note(frequency=100, velocity=1),
          Note(frequency=1000, velocity=0.09)]
 chord = Chord(notes=notes)
 ```
-
 
 # Visualizing chords
 Once you've created a chord, you might want to visualize it and see what it looks like. The waveforms you'll be generating here will most likely be hundreds or thousands of hertz, so you'll want a very short duration - this example is just 250ms!

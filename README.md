@@ -2,7 +2,7 @@
 Create, visualize, and generate wav files for chords.
 
 ### Why did I make this?
-I recently started learning piano, and was curious to see what the waveforms looked like for the different notes/chords I was playing. So, my musical terminology might be a little off in the descriptions I give here.
+I recently started learning piano, and was curious to see what the waveforms looked like for the different notes/chords I was playing. As a result, my musical terminology might be somewhat wrong in the descriptions I give here.
 
 # Get started
 If you just want to start playing around with chords, the code below will get you started. This example will create a C4 major chord, plot it, and create a .wav file. I recommend testing out different values for duration, to see how the waveform looks at different resolutions.

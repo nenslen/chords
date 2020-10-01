@@ -61,7 +61,7 @@ chord = Chord(notes=notes)
 ```
 
 # Visualizing chords
-Once you've created a chord, you might want to visualize it and see what it looks like. Waveforms can be extremely complicated, so you'll want a very short duration in order to see the fine details - this example is just 250ms!
+Once you've created a chord, you might want to visualize it and see what it looks like. Waveforms can be extremely complicated, so you'll want a very short duration in order to see the fine details - this example is just 250 milliseconds!
 ```python
 sample_rate = 44100
 duration = 0.25

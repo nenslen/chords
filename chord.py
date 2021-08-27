@@ -52,10 +52,11 @@ class Chord:
             The waveform for this chord
         '''
         total_samples = sample_rate * duration
+        step = duration / total_samples
         index = 0
         for note in self.notes:
             
-            t = np.linspace(0, duration, total_samples, endpoint=False)
+            t = np.arange(0, duration, step)
             x = np.sin(2 * np.pi * note.frequency * t)
 
             if index == 0:
